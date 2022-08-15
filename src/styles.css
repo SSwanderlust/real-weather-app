@@ -134,3 +134,12 @@ body {
   text-align: center;
   font-size: 30px;
 }
+
+.gitHub {
+  text-decoration: none;
+  color: rgba(11, 88, 202, 0.7);
+  transition: all 200ms ease-in-out;
+}
+.gitHub:hover {
+  cursor: pointer;
+}
