@@ -1,0 +1,136 @@
+html {
+  color: rgba(87, 54, 160, 0.2);
+  background-image: url("/pictures/nature1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body {
+  max-width: 66%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 50px 20px;
+  border: none;
+  border-radius: 40px;
+  background-color: rgb(255, 255, 255, 0.7);
+  box-shadow: 8px 4px 20px 3px rgba(0, 0, 0, 0.3);
+}
+.city,
+.date,
+.temperature,
+.details,
+.weekday,
+.temperatureWeekday {
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  color: #33484d;
+  text-shadow: 5px 0px 7px rgba(56, 81, 112, 0.4);
+}
+
+.searchButton {
+  font-family: "Ubuntu", sans-serif;
+  background: #33484d;
+  color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: all 200ms ease-in-out;
+}
+.locationButton {
+  font-family: "Ubuntu", sans-serif;
+  background: #33484d;
+  color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  transition: all 200ms ease-in-out;
+}
+
+.locationButton:hover,
+.searchButton:hover {
+  color: #33484d;
+  cursor: pointer;
+  background: white;
+}
+.weatherInfo {
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.city {
+  text-shadow: 5px 0px 7px rgba(56, 81, 112, 0.3);
+  font-size: 80px;
+}
+.date {
+  font-size: 15px;
+  color: rgba(51, 72, 77, 0.9);
+}
+.temperature {
+  font-weight: bold;
+  font-size: 80px;
+}
+.celsius,
+.fahrenheit {
+  text-decoration: none;
+  color: #3d655d;
+  transition: all 200ms ease-in-out;
+}
+.celsius:hover,
+.fahrenheit:hover {
+  color: rgba(51, 72, 77, 0.4);
+  cursor: pointer;
+}
+
+.units {
+  position: relative;
+  top: -34px;
+  font-size: 20px;
+}
+
+.details {
+  line-height: 1.7;
+  font-size: 25px;
+  list-style: none;
+}
+.cardDetails {
+  background-color: rgb(255, 255, 255, 0.7);
+  border: 1px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+
+.cardDetails:hover {
+  background-color: rgb(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+.sky {
+  text-transform: capitalize;
+}
+
+.weekday {
+  font-size: 15px;
+  font-weight: bold;
+  color: #062925;
+}
+.temperatureWeekday {
+  color: white;
+  font-size: 24px;
+}
+.daysForecast {
+  background: rgba(51, 72, 77, 0.3);
+  border: none;
+  border-radius: 30px;
+}
+.days {
+  margin: 0 auto;
+  flex: 0 0 auto;
+  width: 16.66666667%;
+}
+.ending {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: -30px;
+  font-family: "Inconsolata", monospace;
+  color: rgba(51, 72, 77, 0.4);
+}
+.icon {
+  color: rgb(234, 234, 113);
+  text-align: center;
+  font-size: 30px;
+}

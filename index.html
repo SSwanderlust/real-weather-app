@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="src/styles.css"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/bf0b0ccc40.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Real Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="grid">
+        <div class="full-width">
+          <form class="search" id="search-form">
+            <div class="row search-tools">
+              <div class="col-8 search-bar">
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="search-input"
+                  placeholder="Type a city"
+                  aria-label=".form-control-sm example"
+                />
+              </div>
+              <div class="col-sm-2 search-button">
+                <input
+                  type="submit"
+                  id="submit-input"
+                  class="form-control searchButton btn btn-secondary btn-sm"
+                  value="Search"
+                />
+              </div>
+              <div
+                class="col-sm-2 current-button"
+              >
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm locationButton"
+                  id="my-location"
+                >
+                  <i
+                    class="fa-solid fa-map-location-dot"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div
+            class="row weatherInfo align-items-center"
+          >
+            <div class="col">
+              <br />
+              <h1
+                class="city"
+                id="search-city"
+              ></h1>
+              <h4
+                class="date"
+                id="current-date"
+              ></h4>
+            </div>
+            <div
+              class="col temperature float-left"
+            >
+              <span id="temperature-value"></span>
+              <span class="units">
+                <a
+                  class="celsius"
+                  href="#"
+                  id="celsius"
+                >
+                  °C
+                </a>
+                |
+                <a
+                  class="fahrenheit"
+                  href="#"
+                  id="fahrenheit"
+                  >°F</a
+                >
+              </span>
+            </div>
+            <ul class="col details">
+              <div class="card cardDetails">
+                <li
+                  class="sky card-body mt-1"
+                  id="main"
+                >
+                  Clear Sky
+                </li>
+              </div>
+              <div class="card cardDetails">
+                <li
+                  class="humidity card-body mt-2"
+                  id="cardDetails"
+                >
+                  Humidity:
+                  <span id="humidity"></span>%
+                </li>
+              </div>
+              <div class="card cardDetails">
+                <li class="wind card-body mt-1">
+                  Wind:
+                  <span id="wind"></span> km/h
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div class="row first">
+            <div class="col col-2 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">Mon</div>
+                  <div class="temperatureWeekday">
+                    33 °C
+                  </div>
+                  <div class="icon">
+                    <i
+                      class="fa-solid fa-sun"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-2 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">Tue</div>
+                  <div class="temperatureWeekday">
+                    30 °C
+                  </div>
+                  <div class="icon">
+                    <i
+                      class="fa-solid fa-sun"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-2 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">Wed</div>
+                  <div class="temperatureWeekday">
+                    25 °C
+                  </div>
+                  <div class="icon">
+                    <i
+                      class="fa-solid fa-smog"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-2 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">Thu</div>
+                  <div class="temperatureWeekday">
+                    30 °C
+                  </div>
+                  <div class="icon">
+                    <i
+                      class="fa-solid fa-cloud-sun-rain"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-2 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">Fri</div>
+                  <div class="temperatureWeekday">
+                    30 °C
+                  </div>
+                  <div class="icon">
+                    <i
+                      class="fa-solid fa-cloud-rain"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ending">
+            Coded By Svitlana Samotis
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
