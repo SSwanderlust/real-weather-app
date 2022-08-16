@@ -1,6 +1,6 @@
 html {
   color: rgba(87, 54, 160, 0.2);
-  background-image: url("https://github.com/SSwanderlust/real-weather-app/blob/main/src/pictures/nature1.jpg?raw=true");
+  background-image: url("./pictures/nature1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
