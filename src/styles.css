@@ -67,12 +67,11 @@ body {
 .celsius,
 .fahrenheit {
   text-decoration: none;
-  color: #3d655d;
+  color: #0000ee;
   transition: all 200ms ease-in-out;
 }
 .celsius:hover,
 .fahrenheit:hover {
-  color: rgba(51, 72, 77, 0.4);
   cursor: pointer;
 }
 
@@ -142,4 +141,11 @@ body {
 }
 .gitHub:hover {
   cursor: pointer;
+}
+.active {
+  color: rgba(51, 72, 77, 0.9);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
 }

@@ -40,26 +40,31 @@ function formatDate(date) {
 
 // Temperature Fahrenheit
 
-function tempFahrenheit(event) {
+function displayFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(
     "#temperature-value"
   );
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature =
+    (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(
-    (temperature * 9) / 5 + 32
+    fahrenheitTemperature
   );
 }
 // Temperature Celsius
 
-function tempCelsius(event) {
+function displayCelsius(event) {
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let tempCel = document.querySelector(
     "#temperature-value"
   );
-  let nowTemperature = 23;
-  tempCel.innerHTML = nowTemperature;
+  tempCel.innerHTML = Math.round(
+    celsiusTemperature
+  );
 }
 
 // My Location Button Function
@@ -89,6 +94,7 @@ function displayWeather(response) {
   ).innerHTML = Math.round(
     response.data.main.temp
   );
+  celsiusTemperature = response.data.main.temp;
   document.querySelector(
     "#search-city"
   ).innerHTML = response.data.name;
@@ -109,6 +115,9 @@ function displayWeather(response) {
     response.data.weather[0].description
   );
 }
+
+let celsiusTemperature = null;
+
 // Submit Button Function
 
 function handleSubmit(event) {
@@ -129,13 +138,20 @@ dateElement.innerHTML = formatDate(currentTime);
 
 // Call for Functions Temperature Fahrenheit
 
-let tempFah = document.querySelector(
+let fahrenheitLink = document.querySelector(
   "#fahrenheit"
 );
-tempFah.addEventListener("click", tempFahrenheit);
+fahrenheitLink.addEventListener(
+  "click",
+  displayFahrenheit
+);
 
-let tempCel = document.querySelector("#celsius");
-tempCel.addEventListener("click", tempCelsius);
+let celsiusLink =
+  document.querySelector("#celsius");
+celsiusLink.addEventListener(
+  "click",
+  displayCelsius
+);
 
 // Call Function Search
 
