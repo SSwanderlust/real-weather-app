@@ -38,6 +38,36 @@ function formatDate(date) {
   return `${day}, ${month} ${dateIndex} <br> ${hours}:${minutes} `;
 }
 
+// Weekday forecast function
+
+function displayForecast() {
+  let forecastElement =
+    document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col col-3 days">
+              <div class="card daysForecast">
+                <div class="card-body">
+                  <div class="weekday">${day}</div>
+                  <div class="temperatureWeekday">
+                    <span class="weatherTemperatureMax">20</span>° <span class="weatherTemperatureMin">15</span>°
+                  </div>
+                  <img
+                  src="#"
+                  alt=""
+                  width="42"
+                    />
+                  </div>
+                </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 // Temperature Fahrenheit
 
 function displayFahrenheit(event) {
@@ -53,7 +83,8 @@ function displayFahrenheit(event) {
     fahrenheitTemperature
   );
 }
-// Temperature Celsius
+
+// Temperature Celsius Function
 
 function displayCelsius(event) {
   event.preventDefault();
@@ -77,7 +108,7 @@ function retrievePosition(position) {
   axios.get(url).then(displayWeather);
 }
 
-//Search API Call
+//Search API Call Function
 
 function searchCity(city) {
   let apiKey = "742a4c8cf67279a2287800566ec1d9aa";
@@ -180,5 +211,7 @@ currentLocation.addEventListener(
   "click",
   getCurrentPosition
 );
+
+displayForecast();
 
 searchCity("Paris");
