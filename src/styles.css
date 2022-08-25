@@ -103,13 +103,17 @@ body {
 }
 
 .weekday {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   color: #062925;
+  opacity: 0.6;
 }
 .temperatureWeekday {
   color: white;
-  font-size: 24px;
+  font-size: 14px;
+}
+.weatherTemperatureMin {
+  opacity: 0.8;
 }
 .daysForecast {
   background: rgba(51, 72, 77, 0.3);
@@ -128,12 +132,6 @@ body {
   font-family: "Inconsolata", monospace;
   color: rgba(51, 72, 77, 0.4);
 }
-.icon {
-  color: rgb(234, 234, 113);
-  text-align: center;
-  font-size: 30px;
-}
-
 .gitHub {
   text-decoration: none;
   color: rgba(11, 88, 202, 0.7);
