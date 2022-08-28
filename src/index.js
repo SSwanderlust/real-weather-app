@@ -1,4 +1,4 @@
-// Date function
+// Format Date function
 
 function formatDate(date) {
   let dateIndex = date.getDate();
@@ -38,6 +38,8 @@ function formatDate(date) {
   return `${day}, ${month} ${dateIndex} <br> ${hours}:${minutes} `;
 }
 
+// Format Weekday Function
+
 function formatWeekDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -52,7 +54,8 @@ function formatWeekDay(timestamp) {
   ];
   return days[day];
 }
-// Weekday forecast function
+
+// Weekday Forecast Display function
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -60,7 +63,7 @@ function displayForecast(response) {
     document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -92,37 +95,8 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-// Temperature Fahrenheit
 
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(
-    "#temperature-value"
-  );
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature =
-    (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(
-    fahrenheitTemperature
-  );
-}
-
-// Temperature Celsius Function
-
-function displayCelsius(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let tempCel = document.querySelector(
-    "#temperature-value"
-  );
-  tempCel.innerHTML = Math.round(
-    celsiusTemperature
-  );
-}
-
-// My Location Button Function
+// Retrieve My Location Button Function
 
 function retrievePosition(position) {
   let apiKey = "742a4c8cf67279a2287800566ec1d9aa";
@@ -132,7 +106,7 @@ function retrievePosition(position) {
   axios.get(url).then(displayWeather);
 }
 
-//Search API Call Function
+// Search City API Call Function Main
 
 function searchCity(city) {
   let apiKey = "742a4c8cf67279a2287800566ec1d9aa";
@@ -141,12 +115,15 @@ function searchCity(city) {
   axios.get(apiUrl).then(displayWeather);
 }
 
+// Search City API Call Function Daily
+
 function getForecast(coordinates) {
   let apiKey = "742a4c8cf67279a2287800566ec1d9aa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
-// Display Weather ALL (Search + Current + Default)
+
+// Display Weather Main
 
 function displayWeather(response) {
   document.querySelector(
@@ -196,23 +173,6 @@ let dateElement = document.querySelector(
 );
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
-
-// Call for Functions Temperature Fahrenheit
-
-let fahrenheitLink = document.querySelector(
-  "#fahrenheit"
-);
-fahrenheitLink.addEventListener(
-  "click",
-  displayFahrenheit
-);
-
-let celsiusLink =
-  document.querySelector("#celsius");
-celsiusLink.addEventListener(
-  "click",
-  displayCelsius
-);
 
 // Call Function Search
 
